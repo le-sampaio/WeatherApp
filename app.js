@@ -1,6 +1,6 @@
-//Variáveis e seleção de elementos
-const apiKey = "f1a11b7bcddce7171828896f1fd41629";
-const apiCountryURL = "https://countryflagsapi.com/png/";
+
+const apiKey = import.meta.env.VITE_API_KEY;
+
 
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
@@ -35,7 +35,6 @@ const showWeatherData = async (city)=>{
     tempElement.innerText = parseInt(data.main.temp)
     descElement.innerText = data.weather[0].description
     weatherIconElement.setAttribute("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
-    countryElement.setAttribute("src",apiCountryURL + data.sys.country);
     humidityElement.innerText = `${data.main.humidity}%`;
     windElement.innerText = `${data.wind.speed}km/h`;
 
